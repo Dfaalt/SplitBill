@@ -23,10 +23,10 @@ const MemberManager = ({ members, setMembers }) => {
           e.preventDefault(); // cegah reload halaman
           add(); // panggil fungsi add()
         }}
-        className="mb-3 flex gap-2"
+        className="mb-3 grid grid-cols-1 gap-2 sm:grid-cols-[1fr_auto]"
       >
         <input
-          className="border-gray600 flex-1 rounded border bg-gray-700 px-3 py-2 text-gray-100"
+          className="flex-1 rounded border border-gray-600 bg-gray-700 px-3 py-2 text-gray-100"
           placeholder="Nama"
           value={name}
           onChange={(e) => setName(e.target.value)}
