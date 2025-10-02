@@ -22,8 +22,8 @@ const App = () => {
   const [rounding, setRounding] = useState("none");
 
   return (
-    <div className="flex min-h-dvh flex-col bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-      <header className="bg-white px-6 py-4 dark:bg-sky-700">
+    <div className="flex min-h-dvh flex-col bg-gray-900 text-gray-100">
+      <header className="bg-sky-700 px-6 py-4">
         <h1 className="text-xl font-bold">
           <TextType
             text={["Split Bill", "Welcome Fella!"]}
@@ -63,7 +63,7 @@ const App = () => {
           },
         }}
       />
-      <footer className="bg-white px-6 py-4 text-sm dark:bg-gray-800">
+      <footer className="bg-gray-800 px-6 py-4 text-sm">
         <div className="mx-auto max-w-5xl text-center">
           © 2025 Split Bill. Made by Dfaalt
         </div>

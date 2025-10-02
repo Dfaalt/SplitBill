@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ElectricBorder from "./ElectricBorder/ElectricBorder.jsx";
 
 const ItemManager = ({ members, items, setItems }) => {
   const [form, setForm] = useState({ name: "", price: "", qty: 1 });
@@ -41,8 +40,8 @@ const ItemManager = ({ members, items, setItems }) => {
   };
 
   return (
-    <div className="rounded-2xl bg-white p-4 shadow dark:bg-gray-800">
-      <h2 className="mb-3 text-center text-lg font-semibold text-gray-900 dark:text-gray-100">
+    <div className="rounded-2xl bg-gray-800 p-4 shadow">
+      <h2 className="mb-3 text-center text-lg font-semibold text-gray-100">
         Tambah Item
       </h2>
 
@@ -57,13 +56,13 @@ const ItemManager = ({ members, items, setItems }) => {
         {/* grid khusus untuk input */}
         <div className="grid flex-1 grid-cols-3 gap-2">
           <input
-            className="h-10 w-full rounded border border-gray-300 bg-white px-3 text-gray-900 placeholder-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-300"
+            className="h-10 w-full rounded border border-gray-600 bg-gray-700 px-3 text-gray-100 placeholder-gray-300"
             placeholder="Nama item"
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
           />
           <input
-            className="h-10 w-full rounded border border-gray-300 bg-white px-3 text-gray-900 placeholder-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-300"
+            className="h-10 w-full rounded border border-gray-600 bg-gray-700 px-3 text-gray-100 placeholder-gray-300"
             placeholder="Harga (Rp)"
             type="number"
             min="0"
@@ -71,7 +70,7 @@ const ItemManager = ({ members, items, setItems }) => {
             onChange={(e) => setForm((f) => ({ ...f, price: e.target.value }))}
           />
           <input
-            className="h-10 w-full rounded border border-gray-300 bg-white px-3 text-gray-900 placeholder-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-300"
+            className="h-10 w-full rounded border border-gray-600 bg-gray-700 px-3 text-gray-100 placeholder-gray-300"
             placeholder="Qty"
             type="number"
             min="1"
@@ -81,62 +80,50 @@ const ItemManager = ({ members, items, setItems }) => {
         </div>
 
         {/* tombol submit */}
-        <ElectricBorder
-          color="#00FF91"
-          speed={1}
-          chaos={0.5}
-          thickness={2}
-          style={{ borderRadius: 16 }}
+
+        <button
+          type="submit"
+          className="h-10 cursor-pointer rounded bg-sky-700 px-4 text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-sky-600 hover:shadow-lg active:scale-95"
         >
-          <button
-            type="submit"
-            className="h-10 w-full cursor-pointer rounded bg-transparent px-4 text-white transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg active:scale-95 dark:text-white"
-          >
-            Tambah
-          </button>
-        </ElectricBorder>
+          Tambah
+        </button>
       </form>
 
       {items.length === 0 ? (
-        <p className="text-sm text-gray-500 dark:text-gray-400">
-          Belum ada item.
-        </p>
+        <p className="text-sm text-gray-400">Belum ada item.</p>
       ) : (
         <div className="overflow-x-auto">
-          <table className="w-full border border-gray-200 text-sm dark:border-gray-700">
-            <thead className="bg-gray-50 dark:bg-gray-700">
+          <table className="w-full border border-gray-700 text-sm">
+            <thead className="bg-gray-700">
               <tr>
-                <th className="border border-gray-200 p-2 text-gray-900 dark:border-gray-700 dark:text-gray-100">
+                <th className="border border-gray-700 p-2 text-gray-100">
                   Nama
                 </th>
-                <th className="border border-gray-200 p-2 text-gray-900 dark:border-gray-700 dark:text-gray-100">
+                <th className="border border-gray-700 p-2 text-gray-100">
                   Harga
                 </th>
-                <th className="border border-gray-200 p-2 text-gray-900 dark:border-gray-700 dark:text-gray-100">
+                <th className="border border-gray-700 p-2 text-gray-100">
                   Qty
                 </th>
-                <th className="border border-gray-200 p-2 text-gray-900 dark:border-gray-700 dark:text-gray-100">
+                <th className="border border-gray-700 p-2 text-gray-100">
                   Assign (yang makan)
                 </th>
-                <th className="border border-gray-200 p-2 dark:border-gray-700"></th>
+                <th className="border border-gray-700 p-2"></th>
               </tr>
             </thead>
             <tbody>
               {items.map((it) => (
-                <tr
-                  key={it.id}
-                  className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-800/70"
-                >
-                  <td className="border border-gray-200 p-2 text-gray-900 dark:border-gray-700 dark:text-gray-100">
+                <tr key={it.id} className="odd:bg-gray-800 even:bg-gray-800/70">
+                  <td className="border border-gray-700 p-2 text-gray-100">
                     {it.name}
                   </td>
-                  <td className="border border-gray-200 p-2 text-gray-900 dark:border-gray-700 dark:text-gray-100">
+                  <td className="border border-gray-700 p-2 text-gray-100">
                     Rp{Number(it.price).toLocaleString("id-ID")}
                   </td>
-                  <td className="border border-gray-200 p-2 text-gray-900 dark:border-gray-700 dark:text-gray-100">
+                  <td className="border border-gray-700 p-2 text-gray-100">
                     {it.qty}
                   </td>
-                  <td className="border border-gray-200 p-2 dark:border-gray-700">
+                  <td className="border border-gray-700 p-2">
                     <div className="flex flex-wrap gap-2">
                       {members.map((m) => (
                         <label
@@ -145,7 +132,7 @@ const ItemManager = ({ members, items, setItems }) => {
                         >
                           <input
                             type="checkbox"
-                            className="cursor-pointer accent-emerald-600 dark:accent-emerald-400"
+                            className="cursor-pointer accent-emerald-400"
                             checked={it.assignees.includes(m.id)}
                             onChange={() => toggleAssign(it.id, m.id)}
                           />
@@ -153,26 +140,18 @@ const ItemManager = ({ members, items, setItems }) => {
                         </label>
                       ))}
                     </div>
-                    <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                    <p className="mt-1 text-xs text-gray-400">
                       *Jika tidak ada yang dipilih, dianggap semua ikut makan
                       item ini.
                     </p>
                   </td>
-                  <td className="border border-gray-200 p-2 dark:border-gray-700">
-                    <ElectricBorder
-                      color="#FE2A2A"
-                      speed={1}
-                      chaos={0.5}
-                      thickness={2}
-                      style={{ borderRadius: 16 }}
+                  <td className="border border-gray-700 p-2">
+                    <button
+                      onClick={() => removeItem(it.id)}
+                      className="cursor-pointer rounded bg-transparent text-red-600 transition-all duration-200 ease-in-out hover:scale-105 hover:text-red-500 hover:shadow-sm active:scale-95"
                     >
-                      <button
-                        onClick={() => removeItem(it.id)}
-                        className="cursor-pointer rounded bg-transparent text-red-600 transition-all duration-200 ease-in-out hover:scale-105 hover:text-red-400 hover:shadow-sm active:scale-95 dark:text-red-600"
-                      >
-                        Hapus
-                      </button>
-                    </ElectricBorder>
+                      Hapus
+                    </button>
                   </td>
                 </tr>
               ))}
