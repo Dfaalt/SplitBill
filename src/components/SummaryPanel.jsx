@@ -53,7 +53,7 @@ const SummaryPanel = ({ members, items, charges, rounding }) => {
           ))}
         </ul>
         {deltaRounding !== 0 && (
-          <p className="mt-2 text-xs text-gray-400">
+          <p className="mt-2 text-center text-xs text-gray-400">
             Δ akibat rounding (∑ per orang vs grand total):{" "}
             {fmtIDR(deltaRounding)}
           </p>

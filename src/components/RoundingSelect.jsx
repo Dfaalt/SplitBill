@@ -1,5 +1,5 @@
 const RoundingSelect = ({ rounding, setRounding }) => (
-  <div className="rounded-2xl bg-gray-800 p-4 shadow">
+  <div className="rounded-2xl bg-gray-800 p-4 text-center shadow">
     <h2 className="mb-3 text-lg font-semibold text-gray-100">
       Rounding per Orang
     </h2>

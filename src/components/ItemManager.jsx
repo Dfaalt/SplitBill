@@ -57,13 +57,13 @@ const ItemManager = ({ members, items, setItems }) => {
         <div className="grid flex-1 grid-cols-3 gap-2">
           <input
             className="h-10 w-full rounded border border-gray-600 bg-gray-700 px-3 text-gray-100 placeholder-gray-300"
-            placeholder="Nama item"
+            placeholder="Nama..."
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
           />
           <input
             className="h-10 w-full rounded border border-gray-600 bg-gray-700 px-3 text-gray-100 placeholder-gray-300"
-            placeholder="Harga (Rp)"
+            placeholder="Harga(Rp)"
             type="number"
             min="0"
             value={form.price}

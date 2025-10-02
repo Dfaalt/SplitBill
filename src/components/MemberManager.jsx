@@ -18,23 +18,24 @@ const MemberManager = ({ members, setMembers }) => {
       <h2 className="mb-3 text-center text-lg font-semibold text-gray-100">
         Tambah Member
       </h2>
+
       <form
         onSubmit={(e) => {
-          e.preventDefault(); // cegah reload halaman
-          add(); // panggil fungsi add()
+          e.preventDefault();
+          add();
         }}
         className="mb-3 grid grid-cols-1 gap-2 sm:grid-cols-[1fr_auto]"
       >
         <input
-          className="flex-1 rounded border border-gray-600 bg-gray-700 px-3 py-2 text-gray-100"
-          placeholder="Nama"
+          className="h-10 w-full min-w-0 rounded border border-gray-600 bg-gray-700 px-3 text-gray-100 placeholder-gray-400"
+          placeholder="Nama..."
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
 
         <button
           type="submit"
-          className="cursor-pointer rounded bg-sky-700 px-4 py-2 text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-sky-600 hover:shadow-lg active:scale-95"
+          className="h-10 w-full cursor-pointer rounded bg-sky-700 px-4 text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-sky-600 hover:shadow-lg active:scale-95 sm:w-auto"
         >
           Tambah
         </button>
@@ -46,11 +47,10 @@ const MemberManager = ({ members, setMembers }) => {
             key={m.id}
             className="flex items-center justify-between rounded border border-gray-600 bg-gray-700 px-3 py-2 text-gray-100"
           >
-            <span>{m.name}</span>
-
+            <span className="truncate">{m.name}</span>
             <button
               onClick={() => remove(m.id)}
-              className="cursor-pointer rounded bg-transparent text-red-600 transition-all duration-200 ease-in-out hover:scale-105 hover:text-red-500 hover:shadow-sm active:scale-95"
+              className="cursor-pointer rounded bg-transparent text-red-600 transition-all duration-200 ease-in-out hover:scale-105 hover:text-red-500 active:scale-95"
             >
               Hapus
             </button>
